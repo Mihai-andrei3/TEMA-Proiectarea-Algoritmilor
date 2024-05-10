@@ -1,0 +1,37 @@
+Ghita Mihai-Andrei 322CC 
+
+    Pentru o citire eficienta am folosit clasa MyScanner din sheletul temei 1.
+
+Problema 1:
+    Pentru rezolvarea acestei probleme am facut o sortare topologica, in functie de gradul intern al fiecarui nod, pentru care am folosit doua cozi:
+q1 pentru nodurile ce foloseau datasaet-ul 1 si q2 pentru cele care foloseau dataset-ul 2. Am luat in considerare doua cazuri:
+
+        Caz 1: cand e mai eficient sa incep sa scot nodurile din prima coada cat timp acest lucru e posibil, apoi sa trec la a doua facand un context switch
+si tot asa pana se golesc ambele cozi
+        Caz 2: cand e mai eficient sa incep cu a doua
+
+    Complexitate temp: O(2 *(n + m))
+
+    La final se alege numarul mai mic de context switch-uri dintre cele doua cazuri.
+
+Problema 2: Pentru rezolvarea acesteia am folosit algoritmul lui Tarjan din laborator pentru gasirea componentelor tare conexe. Apoi am iterat prin fiecare
+componenta conexa, apoi prin nodurile din aceasta pentru a vedea daca este vreunul conectat cu alte gari, iar daca acestea erau izolate, sau nu contineau 
+nodul sursa am adaugat cate o linie de tren.
+        
+    Complexitate temp: O(n + m + k * n) = O((k + 1)n), unde k = nr de scc-uri
+
+Problema 3: Pentru aceasta rezolvare am folosit doua liste de adiacenta, una pentru muchiile normale si una pentru cele de tip portal. Pornind de la algoritmul
+lui Dijkstra din laborator am mai adaugat un timestamp pentru a verifica cand se poate trece prin portal. Mai intai se incearca trecerea prin portal daca timpul
+este o perioada a portalulului pentru a obtine un cost mai mic, iar daca nu, se trece prin muchiile normale.
+
+    Complexitate temp: O(n^2)
+
+Problema 4: Pentru aceasta problema am folosit doua DFS-uri, unul cu stiva pentru a putea stoca ordinea de traversare a nodurilor si pentru a obtine pozitiile
+nodurilor din acesta ordine, si unul cu timestamp pentru a ma putea folosii de timpii de intrare si iesire ca mai apoi sa calculez unde se poate ajunge pornind
+de la un depozit tinand cont de numarul de expedieri.
+
+
+    Complexitate temp: O(2 *(n + m) + q)
+
+
+
